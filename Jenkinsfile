@@ -21,6 +21,7 @@ node('master-node')
     } 
     stage('Continues Delivery') 
     {
+        input message: 'Waiting for Approval from the DM', submitter: 'dm'
         sh 'scp /var/lib/jenkins/workspace/Spipeline/target/maven-web-app.war root@192.168.75.132:/var/lib/tomcat9/webapps/prodenv.war'
     }      
     
